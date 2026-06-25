@@ -4,8 +4,11 @@ const {
   pairWhatsApp,
   getWhatsAppStatus,
   logoutWhatsApp,
-  sendWhatsAppMessage
+  sendWhatsAppMessage,
+  startWhatsApp
 } = require("../controllers/whatsappController");
+
+
 
 const router = express.Router();
 
@@ -17,5 +20,8 @@ router.get("/status/:numberphone", getWhatsAppStatus);
 
 // تسجيل خروج الرقم
 router.post("/logout/:numberphone", logoutWhatsApp);
+
+
+router.post("/start", startWhatsApp);
 
 module.exports = router;

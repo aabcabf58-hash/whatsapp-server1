@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 
-const whatsappRouter = require("./routes/whatsappRouter");
+const whatsappRouter = require("./routes/whatsappRouter.js");
 
 const app = express();
 

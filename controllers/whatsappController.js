@@ -189,3 +189,24 @@ exports.sendWhatsAppMessage = async (req, res) => {
     });
   }
 };
+
+
+
+exports.startWhatsApp = async (req, res) => {
+  try {
+    const { browser, page } = await openBrowser();
+
+    return res.status(200).json({
+      success: true,
+      message: "تم فتح WhatsApp Web بنجاح",
+    });
+  } catch (error) {
+    console.error("Chrome error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "فشل فتح Chrome",
+      error: error.message,
+    });
+  }
+};

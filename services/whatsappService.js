@@ -1,5 +1,5 @@
 const path = require("path");
-
+const puppeteer = require("puppeteer");
 const {
   Client,
   LocalAuth,
@@ -498,4 +498,33 @@ module.exports = {
   startWhatsAppPairing,
   getWhatsAppSessionStatus,
   logoutWhatsAppSession,
+};
+
+async function openBrowser() {
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--no-zygote",
+    ],
+  });
+
+  const page = await browser.newPage();
+
+  await page.goto("https://web.whatsapp.com", {
+    waitUntil: "networkidle2",
+    timeout: 120000,
+  });
+
+  return {
+    browser,
+    page,
+  };
+}
+
+module.exports = {
+  openBrowser,
 };
