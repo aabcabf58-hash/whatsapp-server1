@@ -4,13 +4,14 @@ const {
   pairWhatsApp,
   getWhatsAppStatus,
   logoutWhatsApp,
+  sendWhatsAppMessage
 } = require("../controllers/whatsappController");
 
 const router = express.Router();
 
 // إنشاء كود ربط
 router.post("/pair", pairWhatsApp);
-
+router.post("/send-message", sendWhatsAppMessage);
 // معرفة حالة الرقم
 router.get("/status/:numberphone", getWhatsAppStatus);
 
