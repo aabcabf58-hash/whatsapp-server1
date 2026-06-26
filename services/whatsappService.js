@@ -142,10 +142,10 @@ async function startWhatsAppPairing(numberphone) {
   /*
     استخدم CHROME_PATH فقط إذا كنت محدد مسار Chrome يدوياً.
   */
-  if (process.env.CHROME_PATH) {
-    puppeteerOptions.executablePath =
-      process.env.CHROME_PATH;
-  }
+//   if (process.env.CHROME_PATH) {
+//     puppeteerOptions.executablePath =
+//       process.env.CHROME_PATH;
+//   }
 
   const client = new Client({
     /*
