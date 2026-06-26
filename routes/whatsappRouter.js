@@ -22,6 +22,6 @@ router.get("/status/:numberphone", getWhatsAppStatus);
 router.post("/logout/:numberphone", logoutWhatsApp);
 
 
-router.post("/start", startWhatsApp);
+
 
 module.exports = router;
